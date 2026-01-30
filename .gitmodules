@@ -1,0 +1,3 @@
+[submodule "machine-learning-book"]
+	path = machine-learning-book
+	url = https://github.com/rasbt/machine-learning-book.git
