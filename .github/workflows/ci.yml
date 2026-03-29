@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  pull_request:
+  schedule:
+    - cron: "0 0 * * 0"
+  workflow_dispatch:
+
+env:
+  MPLBACKEND: Agg
+  PYTHONDONTWRITEBYTECODE: "1"
+
+jobs:
+  notebook-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
+
+      - name: Sync dependencies
+        run: uv sync
+
+      - name: Run notebook tests
+        run: uv run pytest --nbmake src/
