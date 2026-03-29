@@ -5,8 +5,12 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
-    "black>=25.11.0",
-    "isort>=6.1.0",
+    "ipykernel>=6.31.0",
+    "matplotlib>=3.9.4",
+    "nbmake>=1.5.5",
     "numpy>=2.0.2",
+    "pandas>=2.3.3",
     "pytest>=8.4.2",
+    "scikit-learn>=1.6.1",
+    "torch>=2.8.0",
 ]
